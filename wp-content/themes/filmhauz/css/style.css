@@ -1,0 +1,26 @@
+@import url(normalize.css);
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+body {
+  width: 100%; }
+
+.container {
+  margin: 0 auto;
+  width: 95%; }
+
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+body {
+  font: 100%/1.5 "rooney-web", Georgia, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "cubano", sans-serif; }
+
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
