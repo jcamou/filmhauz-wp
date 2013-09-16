@@ -2,6 +2,7 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <header class="header-sticky is-hidden">
+	<!-- This is the reader header -->
 	<div class="container">
 		<h1><?php the_title(); ?></h1>
 		<div class="social-icons">
@@ -16,7 +17,7 @@
 
 			</div>
 		</div>
-		<section>
+		<section class="content">
 			<header>
 				<div class="title-block">
 					<h1><?php the_title(); ?></h1>

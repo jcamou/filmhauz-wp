@@ -394,3 +394,32 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Remove bullets from lists.
+ */
+ol, ul {
+  list-style: none;
+}
+
+/* Paravel's RWD Resets 
+-------------------------------------------------------------- */
+/*
+@-ms-viewport {
+  width: device-width;
+}
+*/
+
+html {
+  overflow-y: auto;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
