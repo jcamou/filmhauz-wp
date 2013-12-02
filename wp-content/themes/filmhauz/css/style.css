@@ -2,6 +2,7 @@
 /* Mixins for Filmhauz */
 /* Mixins
 ---------------------------------- */
+/* We use this to do clear floats */
 @font-face {
   font-family: 'icomoon';
   src: url("fonts/icomoon.eot");
@@ -30,8 +31,21 @@ body {
 
 .container {
   overflow: hidden;
-  margin: 2em auto;
+  margin: 0 auto 3.5em;
   padding: 0 5%; }
+  .container.is-top {
+    position: relative;
+    z-index: 4;
+    background-color: white;
+    margin-bottom: 929px;
+    -webkit-box-shadow: 0px 3px 3px 3px rgba(1, 1, 1, 0.2);
+    box-shadow: 0px 3px 3px 3px rgba(1, 1, 1, 0.2); }
+    @media (max-width: 841px) and (min-width: 651px) {
+      .container.is-top {
+        margin-bottom: 600px; } }
+    @media (max-width: 650px) and (min-width: 0px) {
+      .container.is-top {
+        margin-bottom: 0; } }
 
 .content {
   overflow: hidden;
@@ -67,13 +81,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "cubano", sans-serif;
   line-height: 1em; }
 
+h3 {
+  font-size: .875em; }
+
 .title-block h1 {
   color: white; }
   @media (max-width: 650px) and (min-width: 0px) {
     .title-block h1 {
       font-size: 1.25em; } }
 
-.header-sticky h1 {
+.header-reader h1 {
   font-size: 1.5em; }
 
 .info h4 {
@@ -82,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: red;
   text-decoration: none;
+  cursor: pointer;
   transition-duration: 300ms;
   -webkit-transition-duration: 300ms;
   -ms-transition-duration: 300ms;
@@ -104,6 +122,16 @@ a {
   color: white; }
   .title-block a:hover {
     color: #f7f7f7; }
+
+.main-header .branding a {
+  color: #464646; }
+  .main-header .branding a .lighter {
+    color: #acacac; }
+  .main-header .branding a:hover {
+    color: #797979; }
+.main-header .main-nav a {
+  margin-left: 2em;
+  vertical-align: center; }
 
 footer a {
   color: white; }
@@ -137,6 +165,43 @@ footer a {
 /*------------------------------------*\
     $CONTENT
 \*------------------------------------*/
+.main-header {
+  z-index: 5;
+  position: relative;
+  background-color: white; }
+  .main-header .container {
+    margin: 0;
+    padding-bottom: 1.5em; }
+  .main-header .branding {
+    display: inline-block;
+    float: left; }
+  .main-header .main-nav {
+    position: relative;
+    top: 2em;
+    display: inline-block;
+    float: right; }
+
+.header-reader {
+  position: relative;
+  top: 50px;
+  z-index: 5;
+  padding: 0 5%;
+  width: 150px; }
+  @media (max-width: 841px) and (min-width: 651px) {
+    .header-reader {
+      width: 100px; } }
+  @media (max-width: 650px) and (min-width: 0px) {
+    .header-reader {
+      display: none; } }
+  .header-reader h1 {
+    margin-bottom: .5em; }
+  .header-reader .social-icons a {
+    margin-right: 1em;
+    color: #ff8080;
+    font-size: 1.25em; }
+    .header-reader .social-icons a:hover {
+      color: #ffb3b3; }
+
 .content {
   /*p:last-child {
   	display: -moz-inline-stack;
@@ -168,6 +233,16 @@ footer a {
           padding: .25em 1em; } }
     .content header .post-details {
       margin-top: .5em; }
+      .content header .post-details .author-block,
+      .content header .post-details .pub-date-block,
+      .content header .post-details .illustrator-block {
+        display: inline-block; }
+        @media (max-width: 650px) and (min-width: 0px) {
+          .content header .post-details .author-block,
+          .content header .post-details .pub-date-block,
+          .content header .post-details .illustrator-block {
+            display: block;
+            font-size: .875em; } }
 
 .post-details {
   margin-bottom: 1em;
@@ -175,6 +250,9 @@ footer a {
   .post-details .icon-font {
     margin-left: 1em;
     margin-right: .5em; }
+    @media (max-width: 650px) and (min-width: 0px) {
+      .post-details .icon-font {
+        margin-left: 0; } }
   .post-details time {
     margin-right: 1em; }
 
@@ -188,21 +266,130 @@ footer a {
   .social li .icon-font {
     margin-right: 1em; }
 
-footer {
+.newer-post,
+.older-post {
+  position: fixed;
+  top: 500px;
+  display: inline-block;
+  padding: .5em .875em;
+  cursor: pointer;
+  transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -ms-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  -o-transition-duration: 300ms;
+  transition-property: all;
+  -webkit-transition-property: all;
+  -ms-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out; }
+
+.newer-post {
+  left: -150px; }
+  .newer-post h3 {
+    display: inline-block;
+    color: black; }
+  .newer-post .icon-font {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-left: 1em;
+    color: black;
+    font-size: 1.5em; }
+  .newer-post:hover {
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); }
+    .newer-post:hover h3 {
+      color: red; }
+    .newer-post:hover .icon-font {
+      color: red; }
+
+.older-post {
+  right: -150px; }
+  .older-post h3 {
+    display: inline-block;
+    color: black; }
+  .older-post .icon-font {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-right: 1em;
+    color: black;
+    font-size: 1.5em; }
+  .older-post:hover {
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8); }
+    .older-post:hover h3 {
+      color: red; }
+    .older-post:hover .icon-font {
+      color: red; }
+
+.post-footer {
+  position: fixed;
   bottom: 0;
+  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  background-color: red; }
+  @media (max-width: 1300px) and (min-width: 651px) {
+    .post-footer {
+      padding-top: 500px; } }
+  @media (max-width: 650px) and (min-width: 0px) {
+    .post-footer {
+      position: static;
+      padding-top: 1em; } }
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
   background-color: red;
-  color: white; }
-  footer .container {
-    margin-bottom: 0; }
-  footer p {
+  color: white;
+  border-top: 2px solid #ff2929; }
+  @media (max-width: 650px) and (min-width: 0px) {
+    .site-footer {
+      position: static;
+      font-size: .65em; } }
+  .site-footer .container {
+    margin: 0; }
+  .site-footer p {
+    float: left;
     display: inline-block; }
-  footer .social {
-    float: right; }
-    footer .social li {
-      display: inline-block; }
+  .site-footer .footer-nav {
+    float: right;
+    margin: 1em 0; }
+    .site-footer .footer-nav a {
+      display: inline-block;
+      margin-left: 2em; }
+
+/*------------------------------------*\
+    $ARCHIVE
+\*------------------------------------*/
+.archive-list {
+  width: 100%;
+  font-size: 1.5em;
+  margin: 1em 0 0;
+  padding: 0; }
+  .archive-list li {
+    padding: 1em;
+    margin-bottom: .5em;
+    text-align: center;
+    background-color: red; }
+  .archive-list a {
+    color: white; }
 
 /*------------------------------------*\
     $STATES
 \*------------------------------------*/
 .is-hidden {
   display: none; }
+
+.is-sticky {
+  position: fixed; }

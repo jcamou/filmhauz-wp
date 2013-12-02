@@ -2,7 +2,7 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<div class="container">
+<div class="container is-top">
 	<article>
 		<section class="content">
 			<div class="post-img">
@@ -47,6 +47,15 @@
 		</section>
 	</article>
 </div>
+<footer class="post-footer">
+	<div class="container">
+		<div class="content">
+			<div class="post-img">
+				<img src="<?php the_field('final_illustration'); ?>" alt="" />
+			</div>
+		</div>
+	</div>
+</footer>
 
 <?php endwhile; else:?>
 	<p>There are no pages here</p>

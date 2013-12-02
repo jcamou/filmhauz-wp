@@ -17,17 +17,22 @@
 		<?php wp_head(); ?>
 	</head>
 	<body>
-		<header>
+		<header class="main-header">
 			<div class="container">
-				<h1><a class="logo" href="<?php bloginfo('siteurl'); ?>"><?php bloginfo('name'); ?></a></h1>
+				<div class="branding">
+					<h1><a class="logo" href="<?php bloginfo('siteurl'); ?>">Film<span class="lighter">hauz</span></a></h1>
+				</div>
+				<nav class="main-nav">
+					<?php
+						$args = array(
+							'menu' => 'main-menu', 
+							'echo' => false,
+						);
 
-				<?php
-					
-					$args = array('menu' => 'main-menu');
-
-					wp_nav_menu($args);
-
-				?>
-
+						echo strip_tags(wp_nav_menu($args), '<a>');
+					?>
+				</nav>
+				<div class="search">
+				</div>
 			</div>
 		</header>
