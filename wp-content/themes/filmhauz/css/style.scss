@@ -3,6 +3,7 @@
 @import "variables/colors";
 @import "variables/mixins";
 @import "variables/icon-fonts";
+@import "variables/rwd";
 
 /*------------------------------------*\
     $LAYOUT
@@ -32,6 +33,14 @@ body {
 			margin-bottom: 0;
 		}
 	}
+
+	@media (max-width: $break1) and (min-width: ($break2 + 1)) {
+		padding: 0 10%;
+	}
+
+	@media (max-width: $break2) and (min-width: 0px) {
+		padding: 0 5%;
+	}
 }
 
 .content {
@@ -51,6 +60,11 @@ body {
 	-webkit-text-size-adjust: 100%;
   	-ms-text-size-adjust: 100%;
   	-webkit-font-smoothing: subpixel-antialiased;
+
+}
+
+p {
+	line-height: 1.5em;
 }
 
 .content {
@@ -95,7 +109,7 @@ h3 {
 	h1 {
 		color: white;
 
-		@media (max-width: 650px) and (min-width: 0px) {
+		@media (max-width: $break2) and (min-width: 0px) {
 			font-size: 1.25em;
 		}
 	}
@@ -185,15 +199,16 @@ footer {
 .col3 {
 	width: 22.5409836%;
 	padding-top: .875em;
-	@media (max-width: 650px) and (min-width: 0px) {
+	@media (max-width: $break1) and (min-width: 0px) {
 		width: 100%;
 	}
 }
 
 .col6 {
 	width: 48.3606557%;
+	margin-bottom: 5em;
 
-	@media (max-width: 650px) and (min-width: 0px) {
+	@media (max-width: $break1) and (min-width: 0px) {
 		width: 100%;
 	}
 }
@@ -240,7 +255,7 @@ footer {
 	}
 
 	@media (max-width: 650px) and (min-width: 0px) {
-		display: none;
+		display: none !important;
 	}
 
 	h1 {
@@ -265,8 +280,9 @@ footer {
 .content {
 	.post-img {
 		img {
-			margin: 0 auto;
-			//border: 1px solid black;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		margin-bottom: 1em;
@@ -276,13 +292,14 @@ footer {
 		margin: 0 auto;
 		width: 48.3606557%;
 
-		@media (max-width: 650px) and (min-width: 0px) {
+		@media (max-width: $break1) and (min-width: 0px) {
 			width: 100%;
 		}
 
 		.title-block {
 			padding: .45em 1em;
 			background-color: $color-of-the-week;
+			border-radius: 5px;
 
 				@media (max-width: 650px) and (min-width: 0px) {
 					padding: .25em 1em;
@@ -340,7 +357,7 @@ footer {
 }
 
 .info {
-	@media (max-width: 650px) and (min-width: 0px) {
+	@media (max-width: $break2) and (min-width: 0px) {
 		border-bottom: 1px dashed $light-grey;
 		border-top: 1px dashed $light-grey;
 	}
@@ -356,6 +373,13 @@ footer {
 	}
 }
 
+.next-prev-nav {
+
+	@media (max-width: $break2) and (min-width: 0px) {
+		position: static;
+		}
+}
+
 .newer-post, 
 .older-post {
 	position: fixed;
@@ -367,10 +391,16 @@ footer {
 	@include vendor-prefix(transition-duration, 300ms);
 	@include vendor-prefix(transition-property, all);
 	@include vendor-prefix(transition-timing-function, ease-out);
+
+	@media (max-width: $break2) and (min-width: 0px) {
+		//position: static;
+	}
 }
 
 .newer-post {
 	left: -150px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
 
 	h3 {
 		display: inline-block;
@@ -384,25 +414,37 @@ footer {
 		margin-left: 1em;
 		color: black;
 		font-size: 1.5em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			margin-left: .5em;
+		}
 	}
 
 	&:hover {
 		left: 0;
-		background-color: rgba(255, 255, 255, .8);
+		background-color: black;
 
 		h3 {
-			color: $color-of-the-week;
+			color: white;
 		}
 
 		.icon-font {
-			color: $color-of-the-week;
+			color: white;
 		}
 		
+	}
+
+	@media (max-width: $break2) and (min-width: 0px) {
+		left: 0;
+		padding: 1em;
+		font-size: .875em;
 	}
 }
 
 .older-post {
 	right: -150px;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 
 	h3 {
 		display: inline-block;
@@ -416,20 +458,30 @@ footer {
 		margin-right: 1em;
 		color: black;
 		font-size: 1.5em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			margin-right: .5em;
+		}
 	}
 
 	&:hover {
 		right: 0;
-		background-color: rgba(255, 255, 255, .8);
+		background-color: black;
 
 		h3 {
-			color: $color-of-the-week;
+			color: white;
 		}
 
 		.icon-font {
-			color: $color-of-the-week;
+			color: white;
 		}
 		
+	}
+
+	@media (max-width: $break2) and (min-width: 0px) {
+		right: 0;
+		padding: 1em;
+		font-size: .875em;
 	}
 }
 
@@ -452,14 +504,12 @@ footer {
 }
 
 .site-footer {
-	position: fixed;
 	bottom: 0;
 	right: 0;
 	width: 100%;
 	z-index: 2;
-	background-color: $color-of-the-week;
+	background-color: black;
 	color: white;
-	border-top: 2px solid lighten($color-of-the-week, 8%);
 
 	@media (max-width: 650px) and (min-width: 0px) {
 		position: static;
@@ -488,24 +538,40 @@ footer {
 
 }
 
+.about-background {
+	background-color: $about-background;
+}
+
 /*------------------------------------*\
     $ARCHIVE
 \*------------------------------------*/
 .archive-list {
 	width: 100%;
-	font-size: 1.5em;
 	margin: 1em 0 0;
-	padding: 0;
+	-webkit-padding-start: 0px;
 
 	li {
-		padding: 1em;
+		padding: .875em 1em;
 		margin-bottom: .5em;
-		text-align: center;
-		background-color: $color-of-the-week;
+
 	}
 
 	a {
-		color: white;
+		//color: white;
+	}
+
+	.post-details {
+		margin-bottom: .875em;
+		line-height: 0;
+
+		.icon-font {
+			margin-left: .5em;
+			margin-right: .3em;
+		}
+	}
+
+	p {
+		line-height: 1.5em;
 	}
 }
 

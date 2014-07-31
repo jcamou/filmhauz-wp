@@ -9,12 +9,8 @@
 				<img src="<?php the_field('illustration'); ?>" alt="" />
 			</div>
 			<header>
-				<div class="title-block">
+				<div class="<?php if(is_page( 'About Filmhauz' ) ) { ?>about-background <?php } ?>title-block">
 					<h1><?php the_title(); ?></h1>
-				</div>
-				<div class="post-details">
-					<span class="inbetween-text">Illustration by</span>
-					<a class="illustrator"><?php the_field('illustrator'); ?></a>
 				</div>
 			</header>
 			<section class="col3">
@@ -47,7 +43,7 @@
 		</section>
 	</article>
 </div>
-<footer class="post-footer">
+<footer class="<?php if(is_page( 'About Filmhauz' ) ) { ?>about-background <?php } ?>post-footer">
 	<div class="container">
 		<div class="content">
 			<div class="post-img">

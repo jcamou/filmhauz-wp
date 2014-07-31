@@ -40,4 +40,19 @@
 	remove_filter('comment_text', 'wptexturize');
 	remove_filter('the_title', 'wptexturize');
 
+	// Removes the Admin bar from the top for subscribers 
+	// http://css-tricks.com/snippets/wordpress/remove-admin-bar-for-subscribers/
+	add_action('set_current_user', 'cc_hide_admin_bar');
+	function cc_hide_admin_bar() {
+  		if (!current_user_can('edit_posts')) {
+    		show_admin_bar(false);
+  		}
+	}
+
+	// Removes the [...] from the excerpt call
+	function new_excerpt_more( $more ) {
+		return '...';
+	}
+	add_filter('excerpt_more', 'new_excerpt_more');
+
 ?>
