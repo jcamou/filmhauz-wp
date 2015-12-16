@@ -4,6 +4,7 @@
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
 	$args = array(
+		'post_type' => array('post' , 'double_take' ),
 		'posts_per_page' => 1,
 		'paged' => $paged
 		);
@@ -11,6 +12,8 @@
 	$the_query = new WP_Query($args);
 
 ?>
+
+
 
 <?php if (have_posts()) : while($the_query->have_posts()) : $the_query->the_post(); ?>
 <header class="header-reader is-sticky is-hidden">
@@ -25,7 +28,43 @@
 		</a>
 	</div>
 </header>
-<div class="container is-top">
+
+<?php if (get_post_type(the_post()) == 'post'): ?>
+	<div class="container is-top">
+		<article>
+			<section class="content">
+				<div class="post-img">
+					<img src="<?php the_field('illustration'); ?>" alt="" />
+				</div>
+				<header>
+					<div class="title-block">
+						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+					</div>
+					<div class="post-details">
+						<div class="author-block">
+							<span class="inbetween-text">Written by</span>
+							<a class="author"><?php echo get_the_author_meta( 'nickname' ); ?></a>
+						</div>
+						<div class="pub-date-block">
+							<span class="icon-font" aria-hidden="true" data-icon="&#x21;"></span>
+							<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
+						</div>
+					</div>
+				</header>
+				<section class="col3">
+					<div class="top is-hidden">
+						<a href="#">
+							<span class="icon-font" aria-hidden="true" data-icon="&#x24;"></span>
+							Top
+						</a>
+					</div>
+				</section>
+				<section class="col6 content">
+					<?php the_content(); ?>	
+				</section>
+
+<?php else: ?>
+	<div class="container is-top">
 	<article>
 		<section class="content">
 			<div class="post-img">
@@ -36,10 +75,6 @@
 					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 				</div>
 				<div class="post-details">
-					<div class="author-block">
-						<span class="inbetween-text">Written by</span>
-						<a class="author"><?php echo get_the_author_meta( 'nickname' ); ?></a>
-					</div>
 					<div class="pub-date-block">
 						<span class="icon-font" aria-hidden="true" data-icon="&#x21;"></span>
 						<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
@@ -56,7 +91,19 @@
 			</section>
 			<section class="col6 content">
 				<?php the_content(); ?>	
+				<div class="first-take">
+					<img src="<?php the_field('first_take_author_portrait'); ?>" alt="" />
+					<h2><?php the_field('first_take_author'); ?></h2>
+					<p><?php the_field('first_take_content'); ?></p>
+				</div>
+				<div class="second-take">
+					<img src="<?php the_field('second_take_author_portrait'); ?>" alt="" />
+					<h2><?php the_field('second_take_author'); ?></h2>
+					<p><?php the_field('second_take_content'); ?></p>
+				</div>
 			</section>
+<?php endif; ?>
+
 			<section class="col3 end">
 				<?php if (get_field('movie_title')) : ?>
 					<div class="info">
@@ -77,7 +124,8 @@
 	</article>
 	<div class="next-prev-nav">
 		<?php
-			$next_post = get_next_post();
+			//$next_post = get_next_post();
+			$next_post = mod_get_adjacent_post('next', array('post', 'double_take'));
 			if ($next_post) { ?>
 			<div class="newer-post">
 				<a href="<?php echo get_permalink($next_post->ID); ?>">
@@ -86,7 +134,8 @@
 				</a>
 			</div>
 		<?php } 
-			$prev_post = get_previous_post();
+			//$prev_post = get_previous_post();
+			$prev_post = mod_get_adjacent_post('prev', array('post', 'double_take'));
 			 if ($prev_post) { ?>
 				<div class="older-post">
 					<a href="<?php echo get_permalink($prev_post->ID); ?>">

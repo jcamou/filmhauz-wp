@@ -23,7 +23,8 @@ get_header(); ?>
 			<section class="col6 content">
 				<ul class="archive-list">
 					<?php
-				        $lastposts = get_posts('numberposts=5&orderby=rand&cat=-52');
+						$args = array('orderby' => 'date', 'post_type' => array('post' , 'double_take' ) );
+				        $lastposts = get_posts($args);
 				        foreach($lastposts as $post) :
 				        setup_postdata($post); ?>
 
@@ -34,12 +35,13 @@ get_header(); ?>
 								by
 								<a class="author"><?php echo get_the_author_meta( 'nickname' ); ?></a>
 								<span class="icon-font" aria-hidden="true" data-icon="&#x21;"></span>
-								<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
+								<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
 							</p>
 							<?php the_excerpt(); ?>
 				        </li>
     				<?php endforeach; ?>
 				</ul>
+
 			</section>
 			<section class="col3 end">
 			</section>

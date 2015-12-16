@@ -24,10 +24,6 @@
 					<h1><?php the_title(); ?></h1>
 				</div>
 				<div class="post-details">
-					<div class="author-block">
-						<span class="inbetween-text">Written by</span>
-						<a class="author"><?php echo get_the_author_meta( 'nickname' ); ?></a>
-					</div>
 					<div class="pub-date-block">
 						<span class="icon-font" aria-hidden="true" data-icon="&#x21;"></span>
 						<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
@@ -43,7 +39,18 @@
 				</div>
 			</section>
 			<section class="col6 content">
-				<?php the_content(); ?>	
+				<?php the_content();?>	
+
+				<div class="first-take">
+					<img src="<?php the_field('first_take_author_portrait'); ?>" alt="" />
+					<h2><?php the_field('first_take_author'); ?></h2>
+					<p><?php the_field('first_take_content'); ?></p>
+				</div>
+				<div class="second-take">
+					<img src="<?php the_field('second_take_author_portrait'); ?>" alt="" />
+					<h2><?php the_field('second_take_author'); ?></h2>
+					<p><?php the_field('second_take_content'); ?></p>
+				</div>
 			</section>
 			<section class="col3 end">
 				<?php if (get_field('movie_title')) : ?>

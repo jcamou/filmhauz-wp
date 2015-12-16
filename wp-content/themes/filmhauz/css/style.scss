@@ -210,6 +210,7 @@ footer {
 
 	@media (max-width: $break1) and (min-width: 0px) {
 		width: 100%;
+		margin-bottom: 2.5em;
 	}
 }
 
@@ -250,11 +251,7 @@ footer {
 	padding: 0 5%;
 	width: 150px;
 
-	@media (max-width: 841px) and (min-width: 651px) {
-		width: 100px;
-	}
-
-	@media (max-width: 650px) and (min-width: 0px) {
+	@media (max-width: $break1) and (min-width: 0px) {
 		display: none !important;
 	}
 
@@ -287,6 +284,65 @@ footer {
 
 		margin-bottom: 1em;
 	}
+
+.first-take {
+
+	margin-top: 3em;
+
+	img {
+		display: inline-block;
+		float: left;
+		margin-right: 1em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			display: block;
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	h2 {
+		margin-bottom: .5em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			display: block;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+}
+
+.second-take {
+		margin-top: 3em;
+
+	img {
+		display: inline-block;
+		float: right;
+		margin-left: 1em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			display: block;
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	h2 {
+		margin-bottom: .5em;
+
+		@media (max-width: $break2) and (min-width: 0px) {
+			display: block;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+}
 
 	header {
 		margin: 0 auto;
@@ -342,8 +398,11 @@ footer {
 	margin-bottom: 1em;
 	line-height: 1.5em;
 
+	.author-block{
+		margin-right: 1em;
+	}
+
 	.icon-font {
-		margin-left: 1em;
 		margin-right: .5em;
 
 		@media (max-width: 650px) and (min-width: 0px) {
@@ -357,9 +416,9 @@ footer {
 }
 
 .info {
-	@media (max-width: $break2) and (min-width: 0px) {
-		border-bottom: 1px dashed $light-grey;
-		border-top: 1px dashed $light-grey;
+	@media (max-width: $break1) and (min-width: 0px) {
+		margin-bottom: 2.5em;
+		border-top: 1px solid $light-grey;
 	}
 }
 
