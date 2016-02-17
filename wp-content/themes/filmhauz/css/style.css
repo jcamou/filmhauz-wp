@@ -1,0 +1,475 @@
+@import url(normalize.css);
+/* Mixins for Filmhauz */
+/* Mixins
+---------------------------------- */
+/* We use this to do clear floats */
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1em;
+  vertical-align: -1px; }
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+body {
+  width: 100%; }
+
+.container {
+  overflow: hidden;
+  margin: 0 auto 3.5em;
+  padding: 0 5%; }
+  .container.is-top {
+    position: relative;
+    z-index: 4;
+    background-color: white;
+    margin-bottom: 929px;
+    -webkit-box-shadow: 0px 3px 3px 3px rgba(1, 1, 1, 0.2);
+    box-shadow: 0px 3px 3px 3px rgba(1, 1, 1, 0.2); }
+    @media (max-width: 841px) and (min-width: 651px) {
+      .container.is-top {
+        margin-bottom: 600px; } }
+    @media (max-width: 650px) and (min-width: 0px) {
+      .container.is-top {
+        margin-bottom: 0; } }
+  @media (max-width: 785px) and (min-width: 481px) {
+    .container {
+      padding: 0 10%; } }
+  @media (max-width: 480px) and (min-width: 0px) {
+    .container {
+      padding: 0 5%; } }
+
+.content {
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1420px;
+  width: 100%; }
+
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+body {
+  font: 100% "rooney-web", Georgia, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+p {
+  line-height: 1.5em; }
+
+.content p:first-child {
+  font-weight: 700;
+  font-size: 1.25em; }
+.content .post-details {
+  color: #959595; }
+
+.info {
+  font-size: .85em; }
+  .info p {
+    margin-top: .5em;
+    line-height: 1.5em; }
+
+.top {
+  font-size: 1.25em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "cubano", sans-serif;
+  line-height: 1em; }
+
+h3 {
+  font-size: .875em; }
+
+.title-block h1 {
+  color: white; }
+  @media (max-width: 480px) and (min-width: 0px) {
+    .title-block h1 {
+      font-size: 1.25em; } }
+
+.header-reader h1 {
+  font-size: 1.5em; }
+
+.info h4 {
+  margin-bottom: 0; }
+
+a {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -ms-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  -o-transition-duration: 300ms;
+  transition-property: color;
+  -webkit-transition-property: color;
+  -ms-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out; }
+  a:hover {
+    color: blue; }
+
+.title-block a {
+  color: white; }
+  .title-block a:hover {
+    color: #f7f7f7; }
+
+.main-header .branding a {
+  color: #464646; }
+  .main-header .branding a .lighter {
+    color: #acacac; }
+  .main-header .branding a:hover {
+    color: #797979; }
+.main-header .main-nav a {
+  margin-left: 2em;
+  vertical-align: center; }
+
+footer a {
+  color: white; }
+
+/*------------------------------------*\
+    $GRID
+\*------------------------------------*/
+.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11 {
+  float: left;
+  overflow: hidden;
+  margin-right: 3.2786885%;
+  min-height: 1px; }
+
+.col3 {
+  width: 22.5409836%;
+  padding-top: .875em; }
+  @media (max-width: 785px) and (min-width: 0px) {
+    .col3 {
+      width: 100%; } }
+
+.col6 {
+  width: 48.3606557%;
+  margin-bottom: 5em; }
+  @media (max-width: 785px) and (min-width: 0px) {
+    .col6 {
+      width: 100%;
+      margin-bottom: 2.5em; } }
+
+.end {
+  margin-right: 0;
+  padding-right: 0; }
+
+/*------------------------------------*\
+    $CONTENT
+\*------------------------------------*/
+.main-header {
+  z-index: 5;
+  position: relative;
+  background-color: white; }
+  .main-header .container {
+    margin: 0;
+    padding-bottom: 1.5em; }
+  .main-header .branding {
+    display: inline-block;
+    float: left; }
+  .main-header .main-nav {
+    position: relative;
+    top: 2em;
+    display: inline-block;
+    float: right; }
+
+.header-reader {
+  position: relative;
+  top: 50px;
+  z-index: 5;
+  padding: 0 5%;
+  width: 150px; }
+  @media (max-width: 785px) and (min-width: 0px) {
+    .header-reader {
+      display: none !important; } }
+  .header-reader h1 {
+    margin-bottom: .5em; }
+  .header-reader .social-icons a {
+    margin-right: 1em;
+    color: #ff8080;
+    font-size: 1.25em; }
+    .header-reader .social-icons a:hover {
+      color: #ffb3b3; }
+
+.content {
+  /*p:last-child {
+  	display: -moz-inline-stack;
+  	display: inline-block;
+  	vertical-align: middle;
+  	zoom: 1;
+  	background: #e84824;
+  	background: rgba(51,51,51,0.2);
+  	content: "";
+  	height: 13px;
+  	margin-left: 0.35em;
+  	width: 13px;
+  }*/ }
+  .content .post-img {
+    margin-bottom: 1em; }
+    .content .post-img img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+  .content .first-take {
+    margin-top: 3em; }
+    .content .first-take img {
+      display: inline-block;
+      float: left;
+      margin-right: 1em; }
+      @media (max-width: 480px) and (min-width: 0px) {
+        .content .first-take img {
+          display: block;
+          float: none;
+          margin-left: auto;
+          margin-right: auto; } }
+    .content .first-take h2 {
+      margin-bottom: .5em; }
+      @media (max-width: 480px) and (min-width: 0px) {
+        .content .first-take h2 {
+          display: block;
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto; } }
+  .content .second-take {
+    margin-top: 3em; }
+    .content .second-take img {
+      display: inline-block;
+      float: right;
+      margin-left: 1em; }
+      @media (max-width: 480px) and (min-width: 0px) {
+        .content .second-take img {
+          display: block;
+          float: none;
+          margin-left: auto;
+          margin-right: auto; } }
+    .content .second-take h2 {
+      margin-bottom: .5em; }
+      @media (max-width: 480px) and (min-width: 0px) {
+        .content .second-take h2 {
+          display: block;
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto; } }
+  .content header {
+    margin: 0 auto;
+    width: 48.3606557%; }
+    @media (max-width: 785px) and (min-width: 0px) {
+      .content header {
+        width: 100%; } }
+    .content header .title-block {
+      padding: .45em 1em;
+      background-color: red;
+      border-radius: 5px; }
+      @media (max-width: 650px) and (min-width: 0px) {
+        .content header .title-block {
+          padding: .25em 1em; } }
+    .content header .post-details {
+      margin-top: .5em; }
+      .content header .post-details .author-block,
+      .content header .post-details .pub-date-block,
+      .content header .post-details .illustrator-block {
+        display: inline-block; }
+        @media (max-width: 650px) and (min-width: 0px) {
+          .content header .post-details .author-block,
+          .content header .post-details .pub-date-block,
+          .content header .post-details .illustrator-block {
+            display: block;
+            font-size: .875em; } }
+
+.post-details {
+  margin-bottom: 1em;
+  line-height: 1.5em; }
+  .post-details .author-block {
+    margin-right: 1em; }
+  .post-details .icon-font {
+    margin-right: .5em; }
+    @media (max-width: 650px) and (min-width: 0px) {
+      .post-details .icon-font {
+        margin-left: 0; } }
+  .post-details time {
+    margin-right: 1em; }
+
+@media (max-width: 785px) and (min-width: 0px) {
+  .info {
+    margin-bottom: 2.5em;
+    border-top: 1px solid #959595; } }
+
+.social li {
+  margin-bottom: 1em; }
+  .social li .icon-font {
+    margin-right: 1em; }
+
+@media (max-width: 480px) and (min-width: 0px) {
+  .next-prev-nav {
+    position: static; } }
+
+.newer-post,
+.older-post {
+  position: fixed;
+  top: 500px;
+  display: inline-block;
+  padding: .5em .875em;
+  cursor: pointer;
+  transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -ms-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  -o-transition-duration: 300ms;
+  transition-property: all;
+  -webkit-transition-property: all;
+  -ms-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out; }
+
+.newer-post {
+  left: -150px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px; }
+  .newer-post h3 {
+    display: inline-block;
+    color: black; }
+  .newer-post .icon-font {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-left: 1em;
+    color: black;
+    font-size: 1.5em; }
+    @media (max-width: 480px) and (min-width: 0px) {
+      .newer-post .icon-font {
+        margin-left: .5em; } }
+  .newer-post:hover {
+    left: 0;
+    background-color: black; }
+    .newer-post:hover h3 {
+      color: white; }
+    .newer-post:hover .icon-font {
+      color: white; }
+  @media (max-width: 480px) and (min-width: 0px) {
+    .newer-post {
+      left: 0;
+      padding: 1em;
+      font-size: .875em; } }
+
+.older-post {
+  right: -150px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px; }
+  .older-post h3 {
+    display: inline-block;
+    color: black; }
+  .older-post .icon-font {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-right: 1em;
+    color: black;
+    font-size: 1.5em; }
+    @media (max-width: 480px) and (min-width: 0px) {
+      .older-post .icon-font {
+        margin-right: .5em; } }
+  .older-post:hover {
+    right: 0;
+    background-color: black; }
+    .older-post:hover h3 {
+      color: white; }
+    .older-post:hover .icon-font {
+      color: white; }
+  @media (max-width: 480px) and (min-width: 0px) {
+    .older-post {
+      right: 0;
+      padding: 1em;
+      font-size: .875em; } }
+
+.post-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  background-color: red; }
+  @media (max-width: 1300px) and (min-width: 651px) {
+    .post-footer {
+      padding-top: 500px; } }
+  @media (max-width: 650px) and (min-width: 0px) {
+    .post-footer {
+      position: static;
+      padding-top: 1em; } }
+
+.site-footer {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: black;
+  color: white; }
+  @media (max-width: 650px) and (min-width: 0px) {
+    .site-footer {
+      position: static;
+      font-size: .65em; } }
+  .site-footer .container {
+    margin: 0; }
+  .site-footer p {
+    float: left;
+    display: inline-block; }
+  .site-footer .footer-nav {
+    float: right;
+    margin: 1em 0; }
+    .site-footer .footer-nav a {
+      display: inline-block;
+      margin-left: 2em; }
+
+.about-background {
+  background-color: #86b7a6; }
+
+/*------------------------------------*\
+    $ARCHIVE
+\*------------------------------------*/
+.archive-list {
+  width: 100%;
+  margin: 1em 0 0;
+  -webkit-padding-start: 0px; }
+  .archive-list li {
+    padding: .875em 1em;
+    margin-bottom: .5em; }
+  .archive-list .post-details {
+    margin-bottom: .875em;
+    line-height: 0; }
+    .archive-list .post-details .icon-font {
+      margin-left: .5em;
+      margin-right: .3em; }
+  .archive-list p {
+    line-height: 1.5em; }
+
+/*------------------------------------*\
+    $STATES
+\*------------------------------------*/
+.is-hidden {
+  display: none; }
+
+.is-sticky {
+  position: fixed; }
